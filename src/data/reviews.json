@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "user": "Ario diematta",
+        "rating": 5,
+        "comment": "Toko roti online dengan kualitas terbaik. Sourdough-nya juara!",
+        "date": "7 tahun lalu"
+    },
+    {
+        "id": 2,
+        "user": "Alviano Putra",
+        "rating": 5,
+        "comment": "Toko yang sangat amanah dan produknya selalu memuaskan.",
+        "date": "3 tahun lalu"
+    },
+    {
+        "id": 3,
+        "user": "Khalifah Saida",
+        "rating": 5,
+        "comment": "Mantap banget! Roti-rotinya sehat dan rasanya autentik.",
+        "date": "4 tahun lalu"
+    },
+    {
+        "id": 4,
+        "user": "Ummu Fatimah Halwah",
+        "rating": 5,
+        "comment": "Kastangel-nya JUARA. Keju cheddar asli dari susu sapi. Selalu order di sini untuk acara keluarga.",
+        "date": "7 tahun lalu"
+    }
+]

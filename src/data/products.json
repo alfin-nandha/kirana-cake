@@ -1,0 +1,276 @@
+[
+    {
+        "id": 1,
+        "name": "dark choco cheese bread",
+        "price": 75000,
+        "category": "Sourdough Bread",
+        "description": "Roti sourdough premium dengan isian coklat gelap dan keju melimpah.",
+        "images": [
+            "/products/dark-choco-cheese-bread.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Sourdough Cinnamon Rolls",
+        "price": 60000,
+        "category": "Sourdough Bread",
+        "description": "Gulungan roti sourdough dengan aroma kayu manis yang menggugah selera.",
+        "images": [
+            "/products/Sourdough-Cinnamon-Rolls-1.jpeg",
+            "/products/Sourdough-Cinnamon-Rolls-2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Mushroom Cheese Sourdough Bread",
+        "price": 75000,
+        "category": "Sourdough Bread",
+        "description": "Perpaduan jamur gurih dan keju dalam adonan sourdough yang lembut.",
+        "images": [
+            "/products/Mushroom-Cheese-Sourdough-Bread-1.jpeg",
+            "/products/Mushroom-Cheese-Sourdough-Bread-2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "sourdough cinnamon raisins bagel",
+        "price": 10000,
+        "category": "Sourdough Bread",
+        "description": "Bagel sourdough dengan kismis manis dan sentuhan kayu manis.",
+        "images": [
+            "/products/sourdough-cinnamon-raisins-bagel-1.jpeg",
+            "/products/sourdough-cinnamon-raisins-bagel-2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "raisins nuts bread",
+        "price": 65000,
+        "category": "Sourdough Bread",
+        "description": "Roti sehat dengan isian kismis dan kacang-kacangan renyah.",
+        "images": [
+            "/products/raisins-nuts-bread.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Sunny sourdough (wholewheat 5%)",
+        "price": 47000,
+        "category": "Sourdough Bread",
+        "description": "Roti gandum sourdough dengan tekstur ringan dan nutrisi terjaga.",
+        "images": [
+            "/products/Sunny sourdough (wholewheat 5percent).jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Norwich Sourdough",
+        "price": 50000,
+        "category": "Sourdough Bread",
+        "description": "Roti sourdough klasik dengan kerak renyah dan bagian dalam yang kenyal.",
+        "images": [
+            "/products/Norwich-Sourdough-1.jpeg",
+            "/products/Norwich-Sourdough-2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Tartine Bread ala Kirana Cake",
+        "price": 53000,
+        "category": "Sourdough Bread",
+        "description": "Roti gaya Tartine legendaris versi Kirana Cake.",
+        "images": [
+            "/products/Tartine-Bread-ala-Kirana-Cake-1.jpeg",
+            "/products/Tartine-Bread-ala-Kirana-Cake-2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Sourdough seed bread (ryemeal 10%)",
+        "price": 80000,
+        "category": "Sourdough Bread",
+        "description": "Roti biji-bijian dengan campuran tepung rye untuk rasa yang lebih kaya.",
+        "images": [
+            "/products/Sourdough seed bread (ryemeal 10percent) 1.jpeg",
+            "/products/Sourdough seed bread (ryemeal 10percent) 2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "country bread (wholewheat 12%)",
+        "price": 50000,
+        "category": "Sourdough Bread",
+        "description": "Roti gandum gaya pedesaan yang mengenyangkan dan sehat.",
+        "images": [
+            "/products/country bread (wholewheat 12percent) 1.jpeg",
+            "/products/country bread (wholewheat 12percent) 2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Kue sus (custard cream filling)",
+        "price": 8500,
+        "category": "Pastry",
+        "description": "Sus klasik dengan isian vla vanilla yang lembut dan manis.",
+        "images": [
+            "/products/Kue-sus-custard-cream-filling.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Timus (Snack Ubi)",
+        "price": 4000,
+        "category": "Traditional Snacks",
+        "description": "Jajanan pasar tradisional dari ubi jalar, gluten free.",
+        "images": [
+            "/products/Timus-jajanan-pasar-gluten-free-Snack-Ubi.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Lupis Indonesia",
+        "price": 3500,
+        "category": "Traditional Snacks",
+        "description": "Kue ketan tradisional dengan siraman gula merah dan kelapa parut.",
+        "images": [
+            "/products/Lupis-jajanan-pasar-Indonesia-1.jpeg",
+            "/products/Lupis-jajanan-pasar-Indonesia-2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Kue Bika Panggang Padang (GF)",
+        "price": 5500,
+        "category": "Traditional Snacks",
+        "description": "Bika panggang khas Padang, bebas gluten.",
+        "images": [
+            "/products/Kue-Bika-Panggang-Padang-GF.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Prol Tape besar",
+        "price": 120000,
+        "category": "Pastry",
+        "description": "Kue prol tape ukuran besar dengan rasa tape yang khas dan legit.",
+        "images": [
+            "/products/Prol-Tape-besar-1.jpeg",
+            "/products/Prol-Tape-besar-2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Triple Chocolate Cake",
+        "price": 135000,
+        "category": "Pastry",
+        "description": "Kue coklat tiga lapis untuk pecinta coklat sejati.",
+        "images": [
+            "/products/Triple-Chocolate-Cake-Cake-Coklat-1.jpeg",
+            "/products/Triple-Chocolate-Cake-Cake-Coklat-2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Nastar premium",
+        "price": 190000,
+        "category": "Pastry",
+        "description": "Kue kering nanas premium dengan mentega pilihan.",
+        "images": [
+            "/products/Nastar-kue-kering-premium-1.jpeg",
+            "/products/Nastar-kue-kering-premium-2.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Fudge brownies (chewy)",
+        "price": 87500,
+        "category": "Pastry",
+        "description": "Brownies panggang yang padat, kenyal, dan penuh rasa coklat.",
+        "images": [
+            "/products/Fudge-brownies-chewy-inside-1.jpeg",
+            "/products/Fudge-brownies-chewy-inside-2.jpeg",
+            "/products/Fudge-brownies-chewy-inside-3.jpeg",
+            "/products/Fudge-brownies-chewy-inside-4.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "klappertaart besar",
+        "price": 150000,
+        "category": "Pastry",
+        "description": "Kue kelapa khas Manado dengan tekstur lembut dan creamy.",
+        "images": [
+            "/products/klappertaart-besar.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Talam Ketan Srikaya (GF)",
+        "price": 75000,
+        "category": "Traditional Snacks",
+        "description": "Kue talam dua lapis ketan dan srikaya, bebas gluten.",
+        "images": [
+            "/products/Talam-Ketan-Srikaya-Jajanan-Pasar---GF.jpeg"
+        ],
+        "variants": [
+            "Original"
+        ]
+    }
+]

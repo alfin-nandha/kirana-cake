@@ -1,0 +1,25 @@
+{
+  "name": "Kirana Cake by Mimi",
+  "tagline": "Homemade Sourdough Breads & Traditional Snacks",
+  "description": "Kirana Cake by Mimi adalah toko roti dan kue rumahan yang berspesialisasi dalam produk sourdough berkualitas tinggi. Dibuat dengan penuh cinta menggunakan bahan-bahan pilihan, setiap produk kami menghadirkan cita rasa autentik yang memanjakan lidah.",
+  "rating": 4.9,
+  "reviewCount": 2073,
+  "soldCount": 14000,
+  "location": "Jagakarsa, Jakarta Selatan",
+  "fullAddress": "Jl. Tanjung Barat Selatan RT 08/01 No. 4, RT.8/RW.1, Tj. Bar., Kec. Jagakarsa, Jakarta Selatan, 12530",
+  "coordinates": {
+    "lat": -6.3144444,
+    "lng": 106.845466
+  },
+  "mapsUrl": "https://maps.app.goo.gl/y9r2e15KV5ho4bch9",
+  "tokopediaUrl": "https://www.tokopedia.com/kiranacake",
+  "whatsappNumber": "6287870002785",
+  "whatsappMessage": "Halo Kirana Cake by Mimi, saya ingin memesan produk",
+  "instagram": "@kiranacakebymimi",
+  "categories": [
+    "Sourdough Bread",
+    "Traditional Snacks",
+    "Pastry",
+    "Korean Snacks"
+  ]
+}

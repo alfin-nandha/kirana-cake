@@ -1,0 +1,11 @@
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+.next
+.git
+.vscode
+.gemini
+tmp_update_products.js
+fix_image_names.js
