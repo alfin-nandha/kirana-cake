@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 import store from "@/data/store.json";
 
@@ -18,10 +19,14 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-bg/90 dark:bg-brand-dark-bg/90 backdrop-blur-md border-b border-brand-highlight/30 dark:border-brand-dark-border/60 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-full bg-brand-button flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-110 transition-transform">
-            K
-          </div>
+        <Link href="/" className="flex items-center gap-2 group">
+          <Image
+            src="/logo.png"
+            alt={store.name}
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
+          />
           <span className="text-brand-heading dark:text-brand-highlight font-semibold text-lg tracking-wide transition-colors">
             {store.name.split(" by ")[0]}
             <span className="text-brand-button dark:text-brand-dark-muted"> by Mimi</span>

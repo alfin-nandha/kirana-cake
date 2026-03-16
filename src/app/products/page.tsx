@@ -6,8 +6,12 @@ import ProductCard from "@/components/ProductCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Semua Produk – Kirana Cake by Mimi",
-    description: "Lihat semua produk roti dan kue homemade dari Kirana Cake by Mimi. Sourdough, kue tradisional, pastry, dan snack Korea.",
+    title: "Katalog Produk Artisan Sourdough & Kue Homemade",
+    description: "Jelajahi koleksi lengkap roti sourdough artisan, kue tradisional Indonesia, pastry, dan snack Korea dari Kirana Cake by Mimi. Pesan sekarang melalui Tokopedia.",
+    openGraph: {
+        title: "Katalog Produk Kirana Cake by Mimi",
+        description: "Artisan Sourdough Breads & Traditional Snacks terbaik di Jakarta Selatan.",
+    }
 };
 
 

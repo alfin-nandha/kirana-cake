@@ -1,5 +1,6 @@
 import store from "@/data/store.json";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -10,9 +11,13 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     {/* Brand */}
                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-brand-highlight flex items-center justify-center text-brand-heading font-bold">
-                            K
-                        </div>
+                        <Image
+                            src="/logo.png"
+                            alt={store.name}
+                            width={32}
+                            height={32}
+                            className="w-8 h-8 object-contain"
+                        />
                         <span className="text-brand-highlight dark:text-brand-dark-text font-semibold">
                             {store.name}
                         </span>
