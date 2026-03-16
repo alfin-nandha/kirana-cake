@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Katalog Produk Kirana Cake by Mimi",
         description: "Artisan Sourdough Breads & Traditional Snacks terbaik di Jakarta Selatan.",
+        images: ['/og-image.png'],
     }
 };
 
