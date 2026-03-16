@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kiranacake.com'),
+  metadataBase: new URL('https://kiranacake.jadiaja.com'),
   title: {
     default: "Kirana Cake by Mimi – Homemade Sourdough Breads & Snacks",
     template: "%s | Kirana Cake by Mimi"
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description:
     "Kirana Cake by Mimi adalah toko roti dan kue homemade dengan spesialisasi sourdough berkualitas tinggi di Jagakarsa, Jakarta Selatan. Rating 4.9 ⭐ dari 2.000+ pembeli. Tersedia di Tokopedia.",
   keywords: ["Kirana Cake", "Kirana Cake by Mimi", "Sourdough Jakarta", "Homemade Bread Jakarta", "Roti Sourdough", "Kue Tradisional", "Snack Korea Jakarta", "Toko Roti Jagakarsa"],
-  authors: [{ name: "Mimi", url: "https://kiranacake.com" }],
+  authors: [{ name: "Mimi", url: "https://kiranacake.jadiaja.com" }],
   creator: "Kirana Cake by Mimi",
   publisher: "Kirana Cake by Mimi",
   formatDetection: {
@@ -71,9 +71,9 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Kirana Cake by Mimi",
-  "image": "https://kiranacake.com/hero-bread.png",
-  "@id": "https://kiranacake.com",
-  "url": "https://kiranacake.com",
+  "image": "https://kiranacake.jadiaja.com/hero-bread.png",
+  "@id": "https://kiranacake.jadiaja.com",
+  "url": "https://kiranacake.jadiaja.com",
   "telephone": "+6287870002785",
   "address": {
     "@type": "PostalAddress",

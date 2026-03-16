@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://kiranacake.com/sitemap.xml',
+        sitemap: 'https://kiranacake.jadiaja.com/sitemap.xml',
     }
 }
