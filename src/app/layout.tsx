@@ -39,14 +39,7 @@ export const metadata: Metadata = {
     siteName: 'Kirana Cake by Mimi',
     locale: 'id_ID',
     type: 'website',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Kirana Cake by Mimi – Artisan Sourdough Breads & Traditional Snacks',
-      },
-    ],
+    images: '/og-image.png',
   },
   twitter: {
     card: 'summary_large_image',

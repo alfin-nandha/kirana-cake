@@ -3,8 +3,11 @@
         "id": 1,
         "title": "Peralatan yang Dipakai",
         "date": "2024-03-10",
-        "description": "Intip balik layar dapur kami! Kami menggunakan peralatan modern seperti spinner untuk memastikan keripik kami bebas minyak dan vacuum frying untuk menjaga nutrisi dan warna alami buah/sayur.",
-        "image": "/news-tools.png",
+        "description": "Intip balik layar dapur kami! Kami menggunakan peralatan modern seperti spinner untuk memastikan keripik kami bebas minyak dan vacuum frying untuk menjaga nutrisi dan warna alami buah/sayur. Dengan teknologi vacuum frying, kami dapat menggoreng pada suhu yang lebih rendah, sehingga tekstur keripik lebih renyah tanpa merusak vitamin di dalamnya.",
+        "images": [
+            "/spinner.png",
+            "/vacuum_frying.png"
+        ],
         "ctaText": "Lihat Detail",
         "ctaUrl": "#"
     },
@@ -12,8 +15,10 @@
         "id": 2,
         "title": "Promo Akhir Pekan",
         "date": "2024-03-15",
-        "description": "Dapatkan diskon khusus untuk pembelian Sourdough Shio Pan setiap hari Sabtu dan Minggu. Persediaan terbatas!",
-        "image": "/news-promo.png",
+        "description": "Dapatkan diskon khusus untuk pembelian Sourdough Shio Pan setiap hari Sabtu dan Minggu. Persediaan terbatas! Nikmati gurihnya mentega dan tekstur lembut sourdough kami dengan harga spesial.",
+        "images": [
+            "/news-promo.png"
+        ],
         "ctaText": "Pesan Sekarang",
         "ctaUrl": "https://www.tokopedia.com/kiranacake"
     }
