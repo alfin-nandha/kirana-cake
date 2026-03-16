@@ -1,5 +1,4 @@
 import { MetadataRoute } from 'next'
-import products from '@/data/products.json'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://kiranacake.com'
