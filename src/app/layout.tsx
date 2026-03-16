@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kirana Cake by Mimi – Homemade Sourdough Breads & Snacks",
     description: "Nikmati kelezatan artisan sourdough dan kue tradisional homemade terbaik dari dapur Mimi. Tersedia di Tokopedia.",
-    url: 'https://kiranacake.com',
+    url: 'https://kiranacake.jadiaja.com',
     siteName: 'Kirana Cake by Mimi',
     locale: 'id_ID',
     type: 'website',
