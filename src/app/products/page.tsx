@@ -42,7 +42,7 @@ export default async function ProductsPage() {
     });
 
     // Parse JSON strings back to arrays
-    const products: ParsedProduct[] = productsDB.map((p: any) => ({
+    const products: ParsedProduct[] = productsDB.map((p) => ({
         ...p,
         images: JSON.parse(p.images as string) as string[],
         variants: JSON.parse(p.variants as string) as string[]
