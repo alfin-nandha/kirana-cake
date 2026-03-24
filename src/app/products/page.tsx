@@ -48,7 +48,7 @@ export default async function ProductsPage() {
         variants: JSON.parse(p.variants as string)
     }));
 
-    const allCategories: string[] = ["Semua", ...Array.from(new Set(products.map((p: Product) => p.category as string)))];
+    const allCategories: string[] = ["Semua", ...Array.from(new Set<string>(products.map(p => p.category)))];
 
     return (
         <>
