@@ -3,10 +3,13 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
-import store from "@/data/store.json";
+import { useStore } from "./StoreProvider";
 
 export default function Navbar() {
+  const store = useStore();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  if (!store) return null;
 
   const navLinks = [
     { label: "Beranda", href: "/#home" },
@@ -46,7 +49,7 @@ export default function Navbar() {
           ))}
           <ThemeToggle />
           <a
-            href={store.tokopediaUrl}
+            href={store.tokopediaUrl || "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-brand-button hover:opacity-90 text-white text-sm font-semibold px-5 py-2 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-brand-button/30 hover:-translate-y-0.5"
@@ -88,7 +91,7 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href={store.tokopediaUrl}
+            href={store.tokopediaUrl || "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-brand-button hover:opacity-90 text-white text-sm font-semibold px-5 py-2.5 rounded-full text-center transition-all"

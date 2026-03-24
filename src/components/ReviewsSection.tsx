@@ -1,6 +1,11 @@
-import reviews from "@/data/reviews.json";
+import prisma from "@/lib/prisma";
 
-export default function ReviewsSection() {
+export default async function ReviewsSection() {
+    const reviews = await prisma.review.findMany({
+        where: { isHidden: false },
+        orderBy: { createdAt: "desc" },
+    });
+
     return (
         <section id="reviews" className="py-24 bg-white/50 dark:bg-brand-dark-surface transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-6">
@@ -20,7 +25,7 @@ export default function ReviewsSection() {
                     {reviews.map((review) => (
                         <div
                             key={review.id}
-                            className="bg-white dark:bg-brand-dark-bg border border-brand-highlight/30 dark:border-brand-dark-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300"
+                            className="bg-white dark:bg-brand-dark-bg border border-brand-highlight/30 dark:border-brand-dark-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col"
                         >
                             <div className="flex items-center gap-1 mb-4">
                                 {[...Array(5)].map((_, i) => (
@@ -39,7 +44,7 @@ export default function ReviewsSection() {
                             </p>
                             <div className="flex items-center justify-between mt-auto pt-6 border-t border-brand-highlight/10">
                                 <div className="font-bold text-brand-heading dark:text-brand-highlight">
-                                    {review.user}
+                                    {review.userName}
                                 </div>
                                 <div className="text-xs text-brand-text/50 dark:text-brand-dark-muted">
                                     {review.date}

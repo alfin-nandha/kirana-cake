@@ -1,7 +1,12 @@
+"use client";
 import Image from "next/image";
-import store from "@/data/store.json";
+import { useStore } from "./StoreProvider";
 
 export default function HeroSection() {
+    const store = useStore();
+
+    if (!store) return null;
+
     const waUrl = `https://wa.me/${store.whatsappNumber}?text=${encodeURIComponent(store.whatsappMessage)}`;
 
     return (
@@ -27,7 +32,7 @@ export default function HeroSection() {
 
                         {/* Main heading */}
                         <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-4 text-brand-heading dark:text-brand-highlight">
-                            Kirana Cake
+                            {store.name.split(" by ")[0]}
                             <span className="block text-2xl md:text-3xl font-light text-brand-button dark:text-brand-dark-muted mt-2 tracking-wide">
                                 by Mimi
                             </span>
@@ -41,7 +46,7 @@ export default function HeroSection() {
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <a
-                                href={store.tokopediaUrl}
+                                href={store.tokopediaUrl || "#"}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center gap-2 bg-brand-button hover:opacity-90 text-white font-bold px-8 py-4 rounded-full text-sm transition-all duration-300 hover:shadow-xl hover:shadow-brand-button/30 hover:-translate-y-1"
@@ -82,11 +87,11 @@ export default function HeroSection() {
                             </div>
                             {/* Floating badge on image */}
                             <div className="absolute -bottom-4 -left-4 bg-white dark:bg-brand-dark-surface border border-brand-highlight/40 rounded-2xl px-4 py-3 shadow-xl">
-                                <div className="text-brand-button font-bold text-lg">14rb+</div>
+                                <div className="text-brand-button font-bold text-lg">{store.soldCount.toLocaleString("id-ID")}+</div>
                                 <div className="text-brand-text/60 dark:text-brand-dark-muted text-xs">Produk Terjual</div>
                             </div>
                             <div className="absolute -top-4 -right-4 bg-brand-highlight dark:bg-brand-button text-brand-text dark:text-white rounded-2xl px-4 py-3 shadow-xl">
-                                <div className="font-bold text-lg">4.9 ⭐</div>
+                                <div className="font-bold text-lg">{store.rating} ⭐</div>
                                 <div className="text-xs opacity-70">Rating</div>
                             </div>
                         </div>

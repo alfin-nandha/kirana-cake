@@ -1,4 +1,5 @@
-import store from "@/data/store.json";
+"use client";
+import { useStore } from "./StoreProvider";
 
 const features = [
     { icon: "🌾", title: "Bahan Alami Pilihan", desc: "Setiap produk dibuat dari bahan-bahan alami berkualitas tinggi tanpa pengawet buatan." },
@@ -8,6 +9,10 @@ const features = [
 ];
 
 export default function AboutSection() {
+    const store = useStore();
+
+    if (!store) return null;
+
     return (
         <section id="about" className="py-24 bg-brand-bg dark:bg-brand-dark-bg transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-6">

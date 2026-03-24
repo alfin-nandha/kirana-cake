@@ -1,9 +1,14 @@
-import store from "@/data/store.json";
+"use client";
+import { useStore } from "./StoreProvider";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
+    const store = useStore();
     const currentYear = new Date().getFullYear();
+
+    if (!store) return null;
+
 
     return (
         <footer className="bg-brand-heading dark:bg-brand-dark-surface border-t border-brand-highlight/20 dark:border-brand-dark-border py-10 transition-colors duration-300">

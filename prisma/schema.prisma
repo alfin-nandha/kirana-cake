@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  price       Float
+  category    String
+  description String   @db.Text
+  images      String   @db.Text // Store as JSON string or comma-separated
+  variants    String   @db.Text // Store as JSON string or comma-separated
+  isFeatured  Boolean  @default(false)
+  isHidden    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Admin {
+  id           Int      @id @default(autoincrement())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Activity {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String   @db.Text
+  images      String?  @db.Text
+  date        DateTime @default(now())
+  ctaText     String   @default("Selengkapnya")
+  ctaUrl      String   @default("#")
+  isHidden    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+
+model StoreConfig {
+  id              Int      @id @default(1)
+  name            String
+  tagline         String
+  description     String   @db.Text
+  whatsappNumber  String
+  whatsappMessage String
+  tokopediaUrl    String?  @db.Text
+  instagram       String?
+  mapsUrl         String?  @db.Text
+  fullAddress     String?  @db.Text
+  rating          Float    @default(4.9)
+  reviewCount     Int      @default(2000)
+  soldCount       Int      @default(14000)
+  lat             Float    @default(-6.3144444)
+  lng             Float    @default(106.845466)
+  showHero        Boolean  @default(true)
+  showStats       Boolean  @default(true)
+  showProducts    Boolean  @default(true)
+  showNews        Boolean  @default(true)
+  showAbout       Boolean  @default(true)
+  showReviews     Boolean  @default(true)
+  showContact     Boolean  @default(true)
+  updatedAt       DateTime @updatedAt
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  userName  String
+  rating    Int
+  comment   String   @db.Text
+  date      String?
+  isHidden  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

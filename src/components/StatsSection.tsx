@@ -1,13 +1,18 @@
-import store from "@/data/store.json";
-
-const stats = [
-    { value: `${store.rating}`, label: "Rating Toko", suffix: "⭐", bgLight: "bg-brand-highlight/30", bgDark: "dark:bg-brand-dark-surface", textColor: "text-brand-heading dark:text-brand-highlight" },
-    { value: store.reviewCount.toLocaleString("id-ID"), label: "Ulasan Pembeli", suffix: "+", bgLight: "bg-brand-highlight/20", bgDark: "dark:bg-brand-dark-surface", textColor: "text-brand-button dark:text-brand-highlight" },
-    { value: (store.soldCount / 1000).toFixed(0) + "rb", label: "Produk Terjual", suffix: "+", bgLight: "bg-brand-highlight/30", bgDark: "dark:bg-brand-dark-surface", textColor: "text-brand-heading dark:text-brand-highlight" },
-    { value: "100%", label: "Bahan Berkualitas", suffix: "", bgLight: "bg-brand-highlight/20", bgDark: "dark:bg-brand-dark-surface", textColor: "text-brand-button dark:text-brand-highlight" },
-];
+"use client";
+import { useStore } from "./StoreProvider";
 
 export default function StatsSection() {
+    const store = useStore();
+
+    if (!store) return null;
+
+    const stats = [
+        { value: `${store.rating}`, label: "Rating Toko", suffix: "⭐", bgLight: "bg-brand-highlight/30", bgDark: "dark:bg-brand-dark-surface", textColor: "text-brand-heading dark:text-brand-highlight" },
+        { value: store.reviewCount.toLocaleString("id-ID"), label: "Ulasan Pembeli", suffix: "+", bgLight: "bg-brand-highlight/20", bgDark: "dark:bg-brand-dark-surface", textColor: "text-brand-button dark:text-brand-highlight" },
+        { value: (store.soldCount / 1000).toFixed(0) + "rb", label: "Produk Terjual", suffix: "+", bgLight: "bg-brand-highlight/30", bgDark: "dark:bg-brand-dark-surface", textColor: "text-brand-heading dark:text-brand-highlight" },
+        { value: "100%", label: "Bahan Berkualitas", suffix: "", bgLight: "bg-brand-highlight/20", bgDark: "dark:bg-brand-dark-surface", textColor: "text-brand-button dark:text-brand-highlight" },
+    ];
+
     return (
         <section className="py-14 bg-white/60 dark:bg-brand-dark-surface border-y border-brand-highlight/30 dark:border-brand-dark-border transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-6">

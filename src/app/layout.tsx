@@ -108,16 +108,63 @@ const jsonLd = {
   ]
 };
 
-export default function RootLayout({
+import prisma from "@/lib/prisma";
+import StoreProvider from "@/components/StoreProvider";
+import StatusProvider from "@/components/ui/StatusProvider";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let config = null;
+
+  try {
+    const configDB = await prisma.storeConfig.findUnique({
+      where: { id: 1 },
+    });
+
+    if (configDB) {
+      config = {
+        name: configDB.name,
+        tagline: configDB.tagline,
+        description: configDB.description,
+        whatsappNumber: configDB.whatsappNumber,
+        whatsappMessage: configDB.whatsappMessage,
+        tokopediaUrl: configDB.tokopediaUrl || "",
+        instagram: configDB.instagram || "",
+        mapsUrl: configDB.mapsUrl || "",
+        fullAddress: configDB.fullAddress || "",
+        rating: configDB.rating,
+        reviewCount: configDB.reviewCount,
+        soldCount: configDB.soldCount,
+        lat: configDB.lat,
+        lng: configDB.lng,
+        showHero: configDB.showHero,
+        showStats: configDB.showStats,
+        showProducts: configDB.showProducts,
+        showNews: configDB.showNews,
+        showAbout: configDB.showAbout,
+        showReviews: configDB.showReviews,
+        showContact: configDB.showContact,
+      };
+    }
+  } catch (error) {
+    console.error("Layout Config Error:", error);
+    // Silent fail for metadata requests like favicon
+  }
+
   return (
     <html lang="id" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased scroll-smooth bg-brand-bg text-brand-text dark:bg-brand-dark-bg dark:text-brand-dark-text transition-colors duration-300">
         <ThemeProvider>
-          {children}
+          <StatusProvider>
+            {config ? (
+              <StoreProvider initialConfig={config}>
+                {children}
+              </StoreProvider>
+            ) : children}
+          </StatusProvider>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

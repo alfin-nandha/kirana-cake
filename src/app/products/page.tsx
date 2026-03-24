@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import products from "@/data/products.json";
+import prisma from "@/lib/prisma";
 import store from "@/data/store.json";
 import ProductCard from "@/components/ProductCard";
 import type { Metadata } from "next";
@@ -15,8 +15,6 @@ export const metadata: Metadata = {
     }
 };
 
-
-
 const categoryColors: Record<string, string> = {
     "Sourdough Bread": "bg-brand-highlight/40 text-brand-heading border-brand-highlight/60 dark:bg-brand-highlight/15 dark:text-brand-highlight dark:border-brand-highlight/30",
     "Traditional Snacks": "bg-rose-100 text-rose-700 border-rose-200 dark:bg-rose-400/15 dark:text-rose-300 dark:border-rose-400/30",
@@ -24,9 +22,22 @@ const categoryColors: Record<string, string> = {
     "Korean Snacks": "bg-sky-100 text-sky-700 border-sky-200 dark:bg-sky-400/15 dark:text-sky-300 dark:border-sky-400/30",
 };
 
-const allCategories = ["Semua", ...Array.from(new Set(products.map((p) => p.category)))];
+export default async function ProductsPage() {
+    // Fetch products from database
+    const productsDB = await prisma.product.findMany({
+        where: { isHidden: false },
+        orderBy: { updatedAt: 'desc' }
+    });
 
-export default function ProductsPage() {
+    // Parse JSON strings back to arrays
+    const products = productsDB.map(p => ({
+        ...p,
+        images: JSON.parse(p.images),
+        variants: JSON.parse(p.variants)
+    }));
+
+    const allCategories = ["Semua", ...Array.from(new Set(products.map((p) => p.category)))];
+
     return (
         <>
             <Navbar />

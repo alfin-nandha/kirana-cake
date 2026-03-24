@@ -7,18 +7,25 @@ import NewsSection from "@/components/NewsSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import prisma from "@/lib/prisma";
 
-export default function Home() {
+export default async function Home() {
+  const config = await prisma.storeConfig.findUnique({
+    where: { id: 1 },
+  });
+
+  if (!config) return null;
+
   return (
     <main>
       <Navbar />
-      <HeroSection />
-      <StatsSection />
-      <ProductsSection />
-      <NewsSection />
-      <AboutSection />
-      <ReviewsSection />
-      <ContactSection />
+      {config.showHero && <HeroSection />}
+      {config.showStats && <StatsSection />}
+      {config.showProducts && <ProductsSection />}
+      {config.showNews && <NewsSection />}
+      {config.showAbout && <AboutSection />}
+      {config.showReviews && <ReviewsSection />}
+      {config.showContact && <ContactSection />}
       <Footer />
     </main>
   );

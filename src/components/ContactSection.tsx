@@ -1,6 +1,11 @@
-import store from "@/data/store.json";
+"use client";
+import { useStore } from "./StoreProvider";
 
 export default function ContactSection() {
+    const store = useStore();
+
+    if (!store) return null;
+
     const waUrl = `https://wa.me/${store.whatsappNumber}?text=${encodeURIComponent(store.whatsappMessage)}`;
 
     return (
@@ -23,7 +28,7 @@ export default function ContactSection() {
                     <div className="space-y-8">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <a
-                                href={store.tokopediaUrl}
+                                href={store.tokopediaUrl || "#"}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group inline-flex items-center justify-center gap-3 bg-brand-button hover:opacity-90 text-white font-bold px-8 py-4 rounded-xl text-base transition-all duration-300 hover:shadow-2xl hover:shadow-brand-button/30 hover:-translate-y-1"
@@ -83,7 +88,7 @@ export default function ContactSection() {
                         {/* Using a high-quality static map image or an iframe */}
                         <iframe
                             title="Lokasi Kirana Cake"
-                            src={`https://maps.google.com/maps?q=${store.coordinates.lat},${store.coordinates.lng}&hl=id&z=16&output=embed`}
+                            src={`https://maps.google.com/maps?q=${store.lat},${store.lng}&hl=id&z=16&output=embed`}
                             width="100%"
                             height="100%"
                             style={{ border: 0, minHeight: '400px' }}
@@ -92,7 +97,7 @@ export default function ContactSection() {
                             referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
                         <a
-                            href={store.mapsUrl}
+                            href={store.mapsUrl || "#"}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="absolute bottom-4 left-4 bg-white dark:bg-brand-dark-surface text-brand-button dark:text-brand-highlight font-bold px-4 py-2 rounded-lg text-sm shadow-xl flex items-center gap-2 hover:bg-brand-button hover:text-white transition-all transform hover:-translate-y-1"

@@ -1,12 +1,10 @@
 import Link from "next/link";
-import products from "@/data/products.json";
+import prisma from "@/lib/prisma";
 import store from "@/data/store.json";
 import ProductCard from "./ProductCard";
 
-// Landing page shows the first FEATURED_COUNT products from the list
-const FEATURED_COUNT = 6;
-
-
+// Landing page limit
+const FEATURED_LIMIT = 6;
 
 const categoryColors: Record<string, string> = {
     "Sourdough Bread": "bg-brand-highlight/40 text-brand-heading border-brand-highlight/60 dark:bg-brand-highlight/15 dark:text-brand-highlight dark:border-brand-highlight/30",
@@ -15,9 +13,24 @@ const categoryColors: Record<string, string> = {
     "Korean Snacks": "bg-sky-100 text-sky-700 border-sky-200 dark:bg-sky-400/15 dark:text-sky-300 dark:border-sky-400/30",
 };
 
-export default function ProductsSection() {
-    // Show the first FEATURED_COUNT products from the ordered list
-    const featured = products.slice(0, FEATURED_COUNT);
+export default async function ProductsSection() {
+    // Fetch featured products from database
+    const productsDB = await prisma.product.findMany({
+        where: {
+            isHidden: false,
+            isFeatured: true
+        },
+        take: FEATURED_LIMIT,
+        orderBy: { updatedAt: 'desc' }
+    });
+
+    // Parse JSON
+    const featured = productsDB.map(p => ({
+        ...p,
+        images: JSON.parse(p.images),
+        variants: JSON.parse(p.variants)
+    }));
+
 
     return (
         <section id="products" className="py-24 bg-white/50 dark:bg-brand-dark-surface transition-colors duration-300">

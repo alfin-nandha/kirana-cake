@@ -56,11 +56,17 @@ export default function ProductCard({ product, isFeatured = false, categoryColor
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                     ) : (
-                        <div className="flex items-center justify-center h-full text-brand-text/30">
-                            Tanpa Foto
+                        <div className="flex items-center justify-center h-full bg-brand-highlight/5">
+                            <svg className="w-16 h-16 text-brand-heading/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="m18 11 3 3" />
+                                <path d="m21 11-3 3" />
+                                <path d="M11 11a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2Z" />
+                                <path d="M16 17a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                            </svg>
                         </div>
                     )}
                 </div>
+
 
                 {/* Card body */}
                 <div className="p-5 flex flex-col flex-grow">
