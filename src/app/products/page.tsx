@@ -22,14 +22,14 @@ const categoryColors: Record<string, string> = {
     "Korean Snacks": "bg-sky-100 text-sky-700 border-sky-200 dark:bg-sky-400/15 dark:text-sky-300 dark:border-sky-400/30",
 };
 
-interface Product {
+interface ParsedProduct {
     id: number;
     name: string;
     price: number;
     category: string;
     description: string;
-    images: string | string[];
-    variants: string | string[];
+    images: string[];
+    variants: string[];
     isFeatured: boolean;
     isHidden: boolean;
 }
@@ -42,13 +42,13 @@ export default async function ProductsPage() {
     });
 
     // Parse JSON strings back to arrays
-    const products = productsDB.map((p: Product) => ({
+    const products: ParsedProduct[] = productsDB.map((p: any) => ({
         ...p,
-        images: JSON.parse(p.images as string),
-        variants: JSON.parse(p.variants as string)
+        images: JSON.parse(p.images as string) as string[],
+        variants: JSON.parse(p.variants as string) as string[]
     }));
 
-    const allCategories: string[] = ["Semua", ...Array.from(new Set<string>(products.map((p: Product) => p.category)))];
+    const allCategories: string[] = ["Semua", ...Array.from(new Set<string>(products.map((p) => p.category)))];
 
     return (
         <>
@@ -83,7 +83,7 @@ export default async function ProductsPage() {
 
                     {/* Products grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {products.map((product: Product, index: number) => (
+                        {products.map((product, index) => (
                             <ProductCard
                                 key={product.id}
                                 product={product}
