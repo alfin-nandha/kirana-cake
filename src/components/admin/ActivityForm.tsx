@@ -109,6 +109,7 @@ export default function ActivityForm({ initialData, isEditing }: ActivityFormPro
                             <div className="grid grid-cols-2 gap-2 mt-4">
                                 {images.map((img, idx) => (
                                     <div key={idx} className="relative group aspect-video rounded-xl overflow-hidden border border-brand-highlight/20">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img src={img} alt="Preview" className="w-full h-full object-cover" />
                                         <button
                                             type="button"

@@ -1,21 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useStatus } from "@/components/ui/StatusProvider";
 
 export default function ProductsManagementPage() {
     const [products, setProducts] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const { showToast, confirm, setLoading: setGlobalLoading } = useStatus();
-    const router = useRouter();
 
-    useEffect(() => {
-        fetchProducts();
-    }, []);
-
-    const fetchProducts = async () => {
+    const fetchProducts = useCallback(async () => {
         try {
             const res = await fetch("/api/admin/products");
             const data = await res.json();
@@ -26,7 +20,11 @@ export default function ProductsManagementPage() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [showToast]);
+
+    useEffect(() => {
+        fetchProducts();
+    }, [fetchProducts]);
 
     const toggleStatus = async (id: number, field: string, currentValue: boolean) => {
         setGlobalLoading(true);
@@ -177,7 +175,7 @@ export default function ProductsManagementPage() {
                     </tbody>
                 </table>
                 {products.length === 0 && (
-                    <div className="p-10 text-center text-brand-text/40 italic">Belum ada produk. Klik "Tambah Produk" untuk memulai.</div>
+                    <div className="p-10 text-center text-brand-text/40 italic">Belum ada produk. Klik &quot;Tambah Produk&quot; untuk memulai.</div>
                 )}
             </div>
         </div>

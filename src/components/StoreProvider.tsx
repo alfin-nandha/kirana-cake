@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 interface StoreConfig {
     name: string;
@@ -45,7 +45,7 @@ export default function StoreProvider({
     children: React.ReactNode;
     initialConfig: StoreConfig;
 }) {
-    const [config, setConfig] = useState<StoreConfig>(initialConfig);
+    const [config] = useState<StoreConfig>(initialConfig);
 
     return (
         <StoreContext.Provider value={config}>

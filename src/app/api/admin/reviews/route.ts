@@ -7,7 +7,7 @@ export async function GET() {
             orderBy: { createdAt: "desc" },
         });
         return NextResponse.json(reviews);
-    } catch (error) {
+    } catch (_error) {
         return NextResponse.json({ message: "Gagal mengambil data" }, { status: 500 });
     }
 }

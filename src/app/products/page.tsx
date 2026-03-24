@@ -30,13 +30,13 @@ export default async function ProductsPage() {
     });
 
     // Parse JSON strings back to arrays
-    const products = productsDB.map(p => ({
+    const products = productsDB.map((p: any) => ({
         ...p,
-        images: JSON.parse(p.images),
-        variants: JSON.parse(p.variants)
+        images: JSON.parse(p.images as string),
+        variants: JSON.parse(p.variants as string)
     }));
 
-    const allCategories = ["Semua", ...Array.from(new Set(products.map((p) => p.category)))];
+    const allCategories = ["Semua", ...Array.from(new Set(products.map((p: any) => p.category as string)))];
 
     return (
         <>

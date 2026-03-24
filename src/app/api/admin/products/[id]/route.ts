@@ -40,7 +40,7 @@ export async function DELETE(
             where: { id },
         });
         return NextResponse.json({ message: "Produk dihapus" });
-    } catch (error) {
+    } catch (_error) {
         return NextResponse.json({ message: "Gagal menghapus produk" }, { status: 500 });
     }
 }

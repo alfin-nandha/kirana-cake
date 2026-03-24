@@ -31,7 +31,7 @@ export async function GET() {
             orderBy: { updatedAt: "desc" },
         });
         return NextResponse.json(products);
-    } catch (error) {
+    } catch (_error) {
         return NextResponse.json({ message: "Gagal mengambil data" }, { status: 500 });
     }
 }

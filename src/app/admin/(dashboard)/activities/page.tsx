@@ -38,7 +38,7 @@ export default async function AdminActivitiesPage() {
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-brand-highlight/10">
-                            {activities.map((a) => (
+                            {activities.map((a: any) => (
                                 <tr key={a.id} className="hover:bg-brand-highlight/5 transition-colors">
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">
@@ -89,7 +89,7 @@ export default async function AdminActivitiesPage() {
                             {activities.length === 0 && (
                                 <tr>
                                     <td colSpan={4} className="px-6 py-10 text-center text-brand-text/40 italic">
-                                        Belum ada aktivitas. Klik "Tambah Aktivitas" untuk memulai.
+                                        Belum ada aktivitas. Klik &quot;Tambah Aktivitas&quot; untuk memulai.
                                     </td>
                                 </tr>
                             )}

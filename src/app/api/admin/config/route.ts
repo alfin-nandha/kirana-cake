@@ -7,7 +7,7 @@ export async function GET() {
             where: { id: 1 },
         });
         return NextResponse.json(config);
-    } catch (error) {
+    } catch (_error) {
         return NextResponse.json({ message: "Gagal mengambil data" }, { status: 500 });
     }
 }

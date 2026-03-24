@@ -30,7 +30,7 @@ export async function GET() {
             orderBy: { date: "desc" },
         });
         return NextResponse.json(activities);
-    } catch (error) {
+    } catch (_error) {
         return NextResponse.json({ message: "Gagal mengambil data" }, { status: 500 });
     }
 }

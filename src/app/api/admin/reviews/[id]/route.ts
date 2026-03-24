@@ -15,7 +15,7 @@ export async function PUT(
         });
 
         return NextResponse.json(review);
-    } catch (error) {
+    } catch (_error) {
         return NextResponse.json({ message: "Gagal mengupdate ulasan" }, { status: 500 });
     }
 }

@@ -1,5 +1,4 @@
 import ProductForm from "@/components/admin/ProductForm";
-import Navbar from "@/components/Navbar";
 
 export default function NewProductPage() {
     return (

@@ -5,8 +5,32 @@ import { useRouter } from "next/navigation";
 import { useStatus } from "@/components/ui/StatusProvider";
 import { Loader2 } from "lucide-react";
 
+interface StoreConfig {
+    name: string;
+    tagline: string;
+    description: string;
+    whatsappNumber: string;
+    whatsappMessage: string;
+    tokopediaUrl: string;
+    instagram: string;
+    mapsUrl: string;
+    fullAddress: string;
+    rating: number;
+    reviewCount: number;
+    soldCount: number;
+    lat: number;
+    lng: number;
+    showHero: boolean;
+    showStats: boolean;
+    showProducts: boolean;
+    showNews: boolean;
+    showAbout: boolean;
+    showReviews: boolean;
+    showContact: boolean;
+}
+
 export default function ContactManagementPage() {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<StoreConfig>({
         name: "",
         tagline: "",
         description: "",
@@ -98,7 +122,7 @@ export default function ContactManagementPage() {
                             <label key={key} className="flex items-center gap-3 p-4 rounded-2xl bg-brand-highlight/5 border border-brand-highlight/10 cursor-pointer hover:bg-brand-highlight/10 transition-colors">
                                 <input
                                     type="checkbox"
-                                    checked={(formData as any)[key]}
+                                    checked={formData[key as keyof StoreConfig] as boolean}
                                     onChange={(e) => setFormData({ ...formData, [key]: e.target.checked })}
                                     className="w-5 h-5 accent-brand-button"
                                 />

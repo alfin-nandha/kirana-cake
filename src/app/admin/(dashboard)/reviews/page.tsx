@@ -16,7 +16,7 @@ export default function ReviewsManagementPage() {
                 setLoading(false);
             })
             .catch(() => showToast("Gagal memuat ulasan", "error"));
-    }, []);
+    }, [showToast]);
 
     const toggleHide = async (id: number, currentHidden: boolean) => {
         setGlobalLoading(true);
