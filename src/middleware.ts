@@ -17,6 +17,7 @@ export async function middleware(request: NextRequest) {
             await decrypt(session)
             return NextResponse.next()
         } catch (_error) {
+            console.log(_error)
             return NextResponse.redirect(new URL('/admin/login', request.url))
         }
     }

@@ -3,8 +3,17 @@
 import { useEffect, useState } from "react";
 import { useStatus } from "@/components/ui/StatusProvider";
 
+interface Review {
+    id: number;
+    userName: string;
+    rating: number;
+    comment: string;
+    date?: string;
+    isHidden: boolean;
+}
+
 export default function ReviewsManagementPage() {
-    const [reviews, setReviews] = useState<any[]>([]);
+    const [reviews, setReviews] = useState<Review[]>([]);
     const [loading, setLoading] = useState(true);
     const { showToast, setLoading: setGlobalLoading } = useStatus();
 

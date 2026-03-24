@@ -5,8 +5,19 @@ import { useRouter } from "next/navigation";
 import ImageUpload from "./ImageUpload";
 import { useStatus } from "@/components/ui/StatusProvider";
 
+interface ActivityData {
+    id?: number;
+    title?: string;
+    description?: string;
+    date?: string;
+    ctaText?: string;
+    ctaUrl?: string;
+    isHidden?: boolean;
+    images?: string;
+}
+
 interface ActivityFormProps {
-    initialData?: any;
+    initialData?: ActivityData;
     isEditing?: boolean;
 }
 
@@ -36,7 +47,7 @@ export default function ActivityForm({ initialData, isEditing }: ActivityFormPro
         };
 
         try {
-            const url = isEditing ? `/api/admin/activities/${initialData.id}` : "/api/admin/activities";
+            const url = isEditing ? `/api/admin/activities/${initialData?.id}` : "/api/admin/activities";
             const method = isEditing ? "PUT" : "POST";
 
             const res = await fetch(url, {

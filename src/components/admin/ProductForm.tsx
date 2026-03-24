@@ -6,8 +6,20 @@ import ImageUpload from "./ImageUpload";
 import { useStatus } from "@/components/ui/StatusProvider";
 
 
+interface ProductData {
+    id?: number;
+    name?: string;
+    price?: number;
+    category?: string;
+    description?: string;
+    isFeatured?: boolean;
+    isHidden?: boolean;
+    variants?: string[];
+    images?: string[];
+}
+
 interface ProductFormProps {
-    initialData?: any;
+    initialData?: ProductData;
     isEditing?: boolean;
 }
 
@@ -38,7 +50,7 @@ export default function ProductForm({ initialData, isEditing }: ProductFormProps
         };
 
         try {
-            const url = isEditing ? `/api/admin/products/${initialData.id}` : "/api/admin/products";
+            const url = isEditing ? `/api/admin/products/${initialData?.id}` : "/api/admin/products";
             const method = isEditing ? "PUT" : "POST";
 
             const res = await fetch(url, {

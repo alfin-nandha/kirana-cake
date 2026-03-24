@@ -4,8 +4,18 @@ import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { useStatus } from "@/components/ui/StatusProvider";
 
+interface AdminProduct {
+    id: number;
+    name: string;
+    price: number;
+    category: string;
+    images: string;
+    isFeatured: boolean;
+    isHidden: boolean;
+}
+
 export default function ProductsManagementPage() {
-    const [products, setProducts] = useState<any[]>([]);
+    const [products, setProducts] = useState<AdminProduct[]>([]);
     const [loading, setLoading] = useState(true);
     const { showToast, confirm, setLoading: setGlobalLoading } = useStatus();
 
@@ -116,6 +126,7 @@ export default function ProductsManagementPage() {
                                     <div className="flex items-center gap-4">
                                         <div className="w-12 h-12 rounded-xl bg-brand-highlight/10 overflow-hidden border border-brand-highlight/10 flex-shrink-0">
                                             {product.images && JSON.parse(product.images)[0] ? (
+                                                // eslint-disable-next-line @next/next/no-img-element
                                                 <img
                                                     src={JSON.parse(product.images)[0]}
                                                     className="w-full h-full object-cover"

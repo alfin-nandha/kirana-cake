@@ -41,6 +41,6 @@ export async function DELETE(
         });
         return NextResponse.json({ message: "Produk dihapus" });
     } catch (_error) {
-        return NextResponse.json({ message: "Gagal menghapus produk" }, { status: 500 });
+        return NextResponse.json({ message: "Gagal menghapus produk", error: _error }, { status: 500 });
     }
 }

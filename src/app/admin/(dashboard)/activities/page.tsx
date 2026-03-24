@@ -1,6 +1,18 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
+import Image from "next/image";
 import DeleteActivityButton from "@/components/admin/DeleteActivityButton";
+
+interface Activity {
+    id: number;
+    title: string;
+    description: string;
+    images: string | null;
+    date: Date;
+    ctaText: string;
+    ctaUrl: string;
+    isHidden: boolean;
+}
 
 export default async function AdminActivitiesPage() {
     const activities = await prisma.activity.findMany({
@@ -38,7 +50,7 @@ export default async function AdminActivitiesPage() {
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-brand-highlight/10">
-                            {activities.map((a: any) => (
+                            {activities.map((a: Activity) => (
                                 <tr key={a.id} className="hover:bg-brand-highlight/5 transition-colors">
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">
@@ -46,7 +58,7 @@ export default async function AdminActivitiesPage() {
                                                 {(() => {
                                                     const imgs = a.images ? JSON.parse(a.images as string) : [];
                                                     return imgs.length > 0 ? (
-                                                        <img src={imgs[0]} alt={a.title} className="w-full h-full object-cover" />
+                                                        <Image src={imgs[0]} alt={a.title} width={48} height={48} className="w-full h-full object-cover" />
                                                     ) : (
                                                         <div className="w-full h-full flex items-center justify-center text-brand-heading/20">📅</div>
                                                     );

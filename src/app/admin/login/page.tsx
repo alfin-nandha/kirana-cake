@@ -29,6 +29,7 @@ export default function LoginPage() {
                 setError(data.message || "Login failed");
             }
         } catch (_err) {
+            console.error("Login Error:", _err);
             setError("Something went wrong");
         } finally {
             setLoading(false);

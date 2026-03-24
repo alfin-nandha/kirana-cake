@@ -22,6 +22,18 @@ const categoryColors: Record<string, string> = {
     "Korean Snacks": "bg-sky-100 text-sky-700 border-sky-200 dark:bg-sky-400/15 dark:text-sky-300 dark:border-sky-400/30",
 };
 
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+    category: string;
+    description: string;
+    images: string | string[];
+    variants: string | string[];
+    isFeatured: boolean;
+    isHidden: boolean;
+}
+
 export default async function ProductsPage() {
     // Fetch products from database
     const productsDB = await prisma.product.findMany({
@@ -30,13 +42,13 @@ export default async function ProductsPage() {
     });
 
     // Parse JSON strings back to arrays
-    const products = productsDB.map((p: any) => ({
+    const products = productsDB.map((p: Product) => ({
         ...p,
         images: JSON.parse(p.images as string),
         variants: JSON.parse(p.variants as string)
     }));
 
-    const allCategories = ["Semua", ...Array.from(new Set(products.map((p: any) => p.category as string)))];
+    const allCategories = ["Semua", ...Array.from(new Set(products.map((p: Product) => p.category as string)))];
 
     return (
         <>

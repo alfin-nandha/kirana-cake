@@ -31,6 +31,6 @@ export async function GET() {
         });
         return NextResponse.json(activities);
     } catch (_error) {
-        return NextResponse.json({ message: "Gagal mengambil data" }, { status: 500 });
+        return NextResponse.json({ message: "Gagal mengambil data", error: _error }, { status: 500 });
     }
 }

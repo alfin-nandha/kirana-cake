@@ -40,6 +40,6 @@ export async function DELETE(
         });
         return NextResponse.json({ message: "Aktivitas dihapus" });
     } catch (_error) {
-        return NextResponse.json({ message: "Gagal menghapus aktivitas" }, { status: 500 });
+        return NextResponse.json({ message: "Gagal menghapus aktivitas", error: _error }, { status: 500 });
     }
 }
