@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import prisma from "@/lib/prisma";
-import { Prisma } from '@prisma/client';
 import store from "@/data/store.json";
 import ProductCard from "@/components/ProductCard";
 import type { Metadata } from "next";
@@ -43,7 +42,7 @@ export default async function ProductsPage() {
     });
 
     // Parse JSON strings back to arrays
-    const products: ParsedProduct[] = productsDB.map((p: Prisma.ProductGetPayload<{}>) => ({
+    const products: ParsedProduct[] = productsDB.map((p: typeof productsDB[number]) => ({
         ...p,
         images: JSON.parse(p.images as string) as string[],
         variants: JSON.parse(p.variants as string) as string[]

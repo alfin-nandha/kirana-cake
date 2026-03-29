@@ -25,7 +25,7 @@ export default async function ProductsSection() {
     });
 
     // Parse JSON
-    const featured = productsDB.map(p => ({
+    const featured = productsDB.map((p: typeof productsDB[number]) => ({
         ...p,
         images: JSON.parse(p.images),
         variants: JSON.parse(p.variants)
@@ -50,7 +50,7 @@ export default async function ProductsSection() {
 
                 {/* Products grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {featured.map((product) => (
+                    {featured.map((product: typeof featured[number]) => (
                         <ProductCard
                             key={product.id}
                             product={product}

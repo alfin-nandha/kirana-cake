@@ -12,6 +12,13 @@ export default async function EditActivityPage({ params }: { params: { id: strin
         notFound();
     }
 
+    // Format activity data for ActivityForm
+    const formattedActivity = {
+        ...activity,
+        date: activity.date.toISOString().split('T')[0],
+        images: activity.images ? JSON.parse(activity.images) : []
+    };
+
     return (
         <div className="p-8">
             <div className="mb-10 text-center">
@@ -22,7 +29,7 @@ export default async function EditActivityPage({ params }: { params: { id: strin
             </div>
 
             <div className="bg-white dark:bg-brand-dark-surface p-10 rounded-3xl shadow-2xl border border-brand-highlight/10">
-                <ActivityForm initialData={activity} isEditing={true} />
+                <ActivityForm initialData={formattedActivity} isEditing={true} />
             </div>
         </div>
     );

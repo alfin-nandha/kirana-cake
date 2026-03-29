@@ -8,7 +8,7 @@ export default async function NewsSection() {
     });
 
     // Map Prisma models to the format expected by the client component
-    const newsData = activities.map(item => ({
+    const newsData = activities.map((item: typeof activities[number]) => ({
         id: item.id,
         title: item.title,
         date: item.date.toISOString(),

@@ -22,7 +22,7 @@ export default async function ReviewsSection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {reviews.map((review) => (
+                    {reviews.map((review: typeof reviews[number]) => (
                         <div
                             key={review.id}
                             className="bg-white dark:bg-brand-dark-bg border border-brand-highlight/30 dark:border-brand-dark-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col"
