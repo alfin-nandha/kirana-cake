@@ -19,6 +19,9 @@ COPY . .
 # Next.js collects completely anonymous telemetry data about general usage.
 ENV NEXT_TELEMETRY_DISABLED 1
 
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
+
 RUN npm run build
 
 # Production image, copy all the files and run next
