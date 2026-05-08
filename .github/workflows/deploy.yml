@@ -1,0 +1,52 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows:
+      - Build
+    types:
+      - completed
+
+jobs:
+  deploy:
+    name: Deploy to Server
+    runs-on: ubuntu-latest
+    if: |
+      github.event.workflow_run.conclusion == 'success' &&
+      startsWith(github.event.workflow_run.head_branch, 'dev')
+
+    steps:
+      - name: Write env to server
+        uses: appleboy/ssh-action@v1
+        env:
+          DEV_ENV: ${{ secrets.DEV_ENV }}
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          envs: DEV_ENV
+          script: |
+            sudo mkdir -p /opt/kirana-cake
+            printf '%s' "$DEV_ENV" | sudo tee /opt/kirana-cake/.env > /dev/null
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script: |
+            IMAGE=$(echo "ghcr.io/${{ github.repository }}:${{ github.event.workflow_run.head_branch }}" | tr '[:upper:]' '[:lower:]')
+            echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GHCR_USER }} --password-stdin
+            docker pull $IMAGE
+            docker stop kirana-cake || true
+            docker rm kirana-cake || true
+            docker run -d \
+              --name kirana-cake \
+              --restart unless-stopped \
+              -p 3000:3000 \
+              --env-file /opt/kirana-cake/.env \
+              $IMAGE
+            docker image prune -f
